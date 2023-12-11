@@ -5,7 +5,7 @@ const getMenus = async(req,res)=>{
     try {
         menuList = await menuModel.find()
         menuList.map((menu)=>{
-            menu.image = `http://localhost:3500/images/${menu.image}`
+            menu.image = `https://bellybox-api.onrender.com/images/${menu.image}`
         })
         res.status(201).json(menuList)
     } catch (error) {
@@ -16,7 +16,7 @@ const getSingleMenu = async(req,res)=>{
     try {
         const {id} = req.params
         menu = await menuModel.findById(id)
-        menu.image = `http://localhost:3500/images/${menu.image}`
+        menu.image = `https://bellybox-api.onrender.com/images/${menu.image}`
         res.status(201).json({menu})
     } catch (error) {
         res.sendStatus(400)
